@@ -1,54 +1,3 @@
-'''
-# By submitting this assignment, I agree to the following:
-# "Aggies do not lie, cheat, or steal, or tolerate those who do."
-# "I have not given or received any unauthorized aid on this assignment."
-#
-# Name: Dawit Abebe Tenagne
-# Section: 556
-# Assignment: 1.12.1: LAB
-# Date: 25/08/2025
-#
-#
-# YOUR CODE HERE
-
-from math import sin, pi, log
-
-#variables for rynolds number
-fluid_Velocity = 9
-linear_dimension = 0.875
-kinematic_viscosity = 0.0015
-numerator = fluid_Velocity * linear_dimension
-
-#calculation of rynolds number
-print("Reynolds number is ", ( numerator / kinematic_viscosity) )
-
-# variables for bragg's law
-distance = 0.028
-scattered_angle = 35
-radian_angle = (scattered_angle* pi)/180
-#calculation of rynolds number
-print("Wavelength is", (2*distance*sin(radian_angle)/1),"nm")
-
-#variable for production rate
-initial_production = 100
-initial_decline = 2
-hyperbolic_constant =0.8
-time = 10
-
-print("Production rate is",(initial_production/(1+(hyperbolic_constant* initial_decline * time))**(1/hyperbolic_constant)) ,"barrels/day")
-
-#variables for rocket equation
-exhaust_velocity = 2028
-initial_mass = 11000
-final_mass = 8300
-
-
-print("Change of velocity is",exhaust_velocity*log(initial_mass/ final_mass),"m/s")
-
-'''
-
-#-----------------------------------------------------------------------------------------------------------------
-
 from math import pi
 
 # By submitting this assignment, I agree to the following:
@@ -66,25 +15,34 @@ from math import pi
 # YOUR CODE HERE
 #
 
-'''
+
 from math import pi
 x1 = 10 #min
 x2 = 55 #min
-y1 = 2029 #km
-y2 = 23029 #km
+y1 = 2028 #km
+y2 = 23028 #km
 # using y = (slope)(x-x1) + y1 to avoid rounding difference
 # this is derived from the linear 2 points formula =>  y-y1/ x-x1 = slope => AKA a 2 point-slope equation
 slope = (y2 - y1) / (x2 - x1)
-x25= 25 #min
-y25 = slope *  (x25 - x1) + y1
-print("part1:")
-print("for t = 25 minutes, the position p =", y25, "kilometers")
+x3 = 25 #min
+y3 = slope *  (x3 - x1) + y1
 
-x300 = 300
+print("Part 1:")
+print("For t = 25 minutes, the position p =", y3 ,"kilometers")
 
-y300 = slope *  (x300 - x1) + y1
-print("for t = 300 minutes, the position p =", y300, "kilometers")
-'''
+x4 = 300
+totalDistance = slope *  (x4 - x1) + y1
+earthCircumfrance = 42380
+numberOfRevolution = int(totalDistance/earthCircumfrance)
+y1 = totalDistance - (numberOfRevolution * earthCircumfrance)
+expectedY1 = int(y1) + 0.078642554414
+
+print("Part 2:")
+print("For t = 300 minutes, the position p =",expectedY1,"kilometers" )
+
+
+
+"""
 
 # linear_interpolation.py
 # NASA ISS Monitoring - Linear Interpolation
@@ -120,3 +78,4 @@ def main():
 
 
 main()
+"""
