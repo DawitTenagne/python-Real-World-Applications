@@ -1,4 +1,3 @@
-for i in range(10):
-    if i % 2 == 0:
-        continue
-    print(f"i is {i}")
+my_name = 'GraceHopper'
+print(my_name[:4])
+print(my_name[-3:])
