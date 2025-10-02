@@ -1,3 +1,10 @@
-my_name = 'GraceHopper'
-print(my_name[:4])
-print(my_name[-3:])
+
+# calculating the factorial of a given number
+
+N = int(input("enter the number: "))
+i = 1
+f = 1
+while not i > N:
+    f= f*i
+    i +=1
+print(f)
