@@ -32,7 +32,7 @@ elif a != 0:
     elif determinant < 0:
         part1 = (-b / (2 * a))
         part2 = (sqrt(-1 * determinant) / (2 * a))
-        root1 =  str(part1) + " + " +str(part2) +"i"
-        root2 = str(part1) + " - " +str(part2) +"i"
+        root1 =  str(part1) + " + " +str(part2) +" i"
+        root2 = str(part1) + " - " +str(part2) +" i"
         print(f"The roots are x = {root1} and x = {root2}")
 
