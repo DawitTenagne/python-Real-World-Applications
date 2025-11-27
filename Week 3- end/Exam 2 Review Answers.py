@@ -369,3 +369,137 @@ else:
 
 #66
 
+"""
+from math import sqrt,pi,exp
+import matplotlib.pyplot as plt
+
+while True:
+    try:
+        u1 = int(input("enter u:"))
+        a1 = int(input("enter a:"))
+        lst = input("enter numbers for x values separated by comma: ").split(",")
+        x1 = [ int(i) for i in lst]
+        break
+    except ValueError:
+        print("Invalid input! Please enter a number.")
+
+
+
+def probStat(u,a,x):
+    y1 = []
+    for i in x:
+        p = (1/sqrt(2*pi*(a**2))) * (exp((-(i-u)**2)/(2*(a**2))))
+        y1.append(p)
+        
+    return y1
+y = probStat(u1,a1,x1)
+plt.plot(x1,y,"r-")
+plt.title("probability and statistics")
+plt.xlabel("x-axis")
+plt.ylabel("y-axis")
+plt.show()
+"""
+
+
+#67
+
+"""
+def tay_term(n,x):
+    denom = 2*n
+    factorial = 1
+    if n>=1:
+        for i in range(denom,0,-1):
+            factorial *= i
+    term = (((-1)**n)*(x**denom))/factorial
+    return term
+
+x1 = float(input("Enter a value for x: "))
+total = 0
+n = 0
+while True:
+    term = tay_term(n,x1)
+    if abs(term) < (10**(-7)):
+        break
+    else:
+        total +=term
+        n +=1
+
+print(f"The cosine of {x1} is {total:.7f}")
+"""
+
+# 68
+
+"""
+with open("fileID.txt", "r") as file1:
+ file_string = file1.read().strip()
+with open("output_file.txt", "w") as myfile:
+ # your additional line of code goes here
+ content = file_string[0] + ":" + file_string[-1] + "\n"
+ myfile.write(content)
+"""
+
+#69
+"""
+fileName = input("enter the file name: ")
+alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+        'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+counter = {}
+with open(fileName, "r") as file:
+ content = file.read()
+ content.replace("\n","") #replacing all new line character with an empty string ( to remove it even from the middle
+ for letter in alpha:
+  count = content.count(letter)
+  if count != 0:
+   counter[letter] = count  #since we are counting through the entire tex, we don't have to check weather it already exist in teh dictionary or not
+output=[]
+
+for key,value in counter.items():
+ output.append(f"{key}:{value} ")
+print(",".join(output))
+
+
+"""
+
+#70
+"""
+num = int(input("Enter the number of students: "))
+score = {}
+total = 0
+for x in range(num):
+ info = input("Enter the next name and score: ").split(" ")
+ name = info[0]
+ grade = float(info[1])
+ score[name] = grade
+ total += grade
+average = total/num
+
+with open("grades.dat","w") as file:
+ file.write("Name\tScore\n")
+ for key in score.keys():
+  file.write(f"{key} \t {score[key]}\n")
+ print(f"The average grade for this quiz is {average}")
+"""
+
+#71
+
+"""
+costs = []
+expensive = 0
+products ={}
+
+with open("items_cost.dat","r") as file:
+ line1 = file.readline()
+ remainingLines = file.readlines()
+ for line in remainingLines:
+  lst = line.replace("\n","").split(",")
+  item = lst[0]
+  cost = float(lst[1])
+  products[item] = cost
+  costs.append(cost)
+ for i in costs:
+  if (i > expensive) or (expensive == 0):
+   expensive = i
+ for key, value in products.items():
+  if value == expensive:
+   print(f"The most expensive item is {key} and costs ${value}")
+"""
