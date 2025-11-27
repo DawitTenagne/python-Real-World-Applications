@@ -222,3 +222,150 @@ else:
 #60
 
 
+"""
+def max_min(a,b,c,d,e,f):
+    '''this function returned reversed list, sum, and number of evens'''
+    lst = [a,b,c,d,e,f]
+    lst.sort(reverse=True)
+    lstSum = sum(lst)
+    evenCount = 0
+    for i in lst:
+        if i %2 == 0:
+            evenCount +=1
+    return (lst,lstSum,evenCount)
+
+print(max_min(1, 6, 2, 5, 3, 4))
+"""
+
+
+#61
+
+"""
+import numpy as np
+
+def matrixMult(arr1,arr2):
+
+    ''' return the matrix operation of 2 array 
+    if they match their inner dimension (shape)'''
+    
+    shape1 = arr1.shape #(a,b)
+    inner1 = shape1[1]   #b
+    shape2 = arr2.shape  #(c,d)
+    inner2 = shape2[0]  #c
+    if inner1 == inner2:
+        arr3 = arr1 @ arr2
+    else:
+        arr3 = np.array([])
+    return arr3
+
+
+a = np.array([[0,1,2], [3,4,5]])
+b = np.array([[0,1,2,3], [4,5,6,7], [8,9,10,11]])
+matrixMult(a, b)
+
+"""
+
+#62
+
+"""
+def myinsert(string, char):
+    '''insert a character in a string, maintaing the sort'''
+    lst = list(string)
+    for i in lst:
+        if char < i:
+            indx = lst.index(i)-1 #1 index back from the character
+            lst.insert(indx,char)
+            break #once added break out of the forloop
+        else: # if the character is greater than every element, just append it at the ned
+            lst.append(char)
+            break #once added break out of the forloop
+    str = "".join(lst)
+    return str
+
+print(myinsert("abde", "c"))
+"""
+
+#63
+"""
+def menVar(lst):
+    n = len(lst)
+    series1 = 0
+    for i in lst:
+        series1 += i
+    mean = series1 / n
+    series2 = 0
+    for i in lst:
+        series2 += (i-mean)**2
+    variance = series2 / (n-1)
+    return (mean, variance)
+
+def menVar(lst):
+    arr = np.array(lst)
+    men = np.mean(arr)
+    var = np.var(arr)
+    return (men, var)
+"""
+
+#64
+
+"""
+while True:
+    try:
+        x = int(input("Enter an integer:"))
+        y = int(input("Enter another integer:"))
+        if x>0 and y>0:
+            break
+        else:
+            print("We need a positive integer, try again")
+    except:
+        print("Bad input! Try again")
+
+def armStrong(a,b):
+    armStrongLst = []
+    for i in range(a, b+1):
+        lst = list(str(i))  # 234--> ["2","3","4"],    1-->["1]
+        numDigit = len(lst) # number of digit
+        total = 0
+        for j in lst:
+            total += (int(j)**numDigit)
+        if total == i:
+            armStrongLst.append(i)
+
+    return armStrongLst
+
+print(armStrong(x,y))
+"""
+
+
+#65
+
+"""
+while True:
+    try:
+        n = int(input("Enter an integer:"))
+        if n>0:
+            break
+        else:
+            print("Need a positive integer:")
+    except ValueError:
+        print("Bad input! Try again")
+
+def perfectNum(num):
+    divisors = []
+    for i in range(1,num): # we don't count the number it self as the divisor
+        if num % i == 0:
+            divisors.append(i)
+    total = sum(divisors)
+    if total == num:
+        return True
+    else:
+        return False
+
+if perfectNum(n):
+    print(f"{n} is a perfect number")
+else:
+    print(f"{n} is not a perfect number")
+"""
+
+#66
+
