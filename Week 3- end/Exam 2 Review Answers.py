@@ -503,3 +503,110 @@ with open("items_cost.dat","r") as file:
   if value == expensive:
    print(f"The most expensive item is {key} and costs ${value}")
 """
+
+#72
+
+"""
+grades = []
+with open("grades.txt","r") as file:
+    content = file.readlines()
+    for line in content:
+        x = float(line.strip())
+        grades.append(x)
+maxgrade = max(grades)
+mingrade = min(grades)
+average = sum(grades) / len(grades)
+print(f" max:{maxgrade}, min:{mingrade}, average:{average}")
+"""
+
+#73
+
+"""
+maxword = 0
+with open("sentences.txt", "r") as file:
+    for line in file.readlines():
+        words = line.strip().split() # ["abc" "def" "ghi"]
+        length = len(words)
+        if (maxword == 0) or (length > maxword):
+            maxword = length
+print(f"The maximum number of words in a single sentence is {maxword}")
+"""
+
+#74
+
+"""
+import numpy as np
+
+header = []
+floatArray = []
+
+with open("data.dat","r") as file:
+    line1 = file.readline().strip()
+    line2 = file.readline().strip()
+    line3 = file.readline().strip()
+    header = [line1, line2, line3]
+
+    remaniningLine = file.readlines()
+    for line in remaniningLine:
+        line = line.strip().split(",")
+        floatList = [float(x) for x in line]
+        floatArray.append(floatList)
+
+data = np.array(floatArray)
+minTemp = data[:,1].min()
+maxWind = data[:,2].max()
+print(f"Minimum temperature is {minTemp} F")
+print(f"Maximum windspeed is {maxWind} knots")
+
+"""
+
+
+#75
+
+"""
+header = ""
+print(f"{header}\tRatio")
+with open("peanut.dat", "r") as file:
+    header = file.readline().strip()
+    remainingLines = file.readlines()
+    for line in remainingLines:
+        line = line.strip().split(" ")
+        num = int(line[0])
+        major = float(line[1])
+        minor = float(line[2])
+        ratio = major/minor
+        print(f"{num}\t\t{major}\t\t{minor}\t{ratio:.2f}")
+
+
+"""
+
+#76
+
+"""
+flounderData = {}
+count = 0
+with open("fishtotals.txt","r") as file:
+    content = file.readlines()
+    for line in content:
+        line = line.strip().split(":")
+        fisher = line[0]
+        fishInfo = line[1].split(",")
+        flounderLst =[]
+        for fish in fishInfo:
+            fish = fish.strip() #⚠️⚠there is space after the colon so cut it off inorder strtwith to work correctly
+            if fish.startswith("flounder"):
+                count +=1
+                flounderLst.append(fish)
+        if flounderLst:
+            flounderData[fisher] = flounderLst
+with open("flounder.txt", "w") as file:
+    for key, value in flounderData.items(): # {"Fisherman C": ["flounder 12 inches", "flounder 16 inches"]}
+        file.write(f"{key}: {', '.join(value)}\n")
+    file.write(f"Total: {count} flounders caught")
+"""
+
+#77
+
+"""
+
+"""
