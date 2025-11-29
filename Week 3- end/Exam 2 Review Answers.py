@@ -268,21 +268,40 @@ matrixMult(a, b)
 #62
 
 """
+
 def myinsert(string, char):
     '''insert a character in a string, maintaing the sort'''
     lst = list(string)
     for i in lst:
-        if char < i:
-            indx = lst.index(i)-1 #1 index back from the character
+        if (char < i):
+            indx = lst.index(i) #insert it exactly at that character index, and that character will displace to the right
             lst.insert(indx,char)
-            break #once added break out of the forloop
-        else: # if the character is greater than every element, just append it at the ned
-            lst.append(char)
-            break #once added break out of the forloop
+            break #⚠️ don't forget to break once added, b/c it will check for the next elements and will add it again
+    # ️⚠️don;t add the else statement inside the for loop, other wise it will be appended in every fail of if statement
+    else: # if the character is greater than every element, just append it at the ned
+        lst.append(char)
     str = "".join(lst)
     return str
 
 print(myinsert("abde", "c"))
+
+
+#part 2 same thing(lst as parameter instead of string----------------------------------------------------
+
+def myinsert2(lst,char):
+    for i in lst:
+        if char < i:
+            indx = lst.index(i)
+            lst.insert(indx,char)
+            break
+    else:
+        lst.append(char)
+    return lst
+
+print(myinsert2(["a", "b", "d", "e"], "c"))
+
+
+
 """
 
 #63
